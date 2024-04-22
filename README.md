@@ -15,7 +15,7 @@ This repository contains the software for the project Smile that is the basis fo
 ### Initial checkout of the workspace
 For an initial checkout, do:
 ```bash
-git clone https://hri-gitlab.honda-ri.de/mgienger/smile.git
+git clone https://github.com/HRI-EU/SmileWorkspace.git
 cd smile
 git submodule update --init --recursive
 ```
