@@ -1,0 +1,20 @@
+# IDE backup files
+*~
+.idea
+.vscode
+__pycache__/
+
+# Artistic style indentation backup files
+*.before_astyle
+
+klocwork
+
+build*
+install*
+
+config/aruco
+config/hri_scitos_description
+config/kinova_description
+
+UnitTestResults.txt
+pylint_result*

@@ -102,7 +102,7 @@ Now we can import the pyAffaction module:
 from pyAffaction import *
 ```
 
-Now we can instantiate a simulator. The variables allow to configure it in various ways, please refer to the python module's documentation (src/AffAction/python/module.cpp).
+Now we can instantiate a simulator. The variables allow to configure it in various ways, please refer to the [python module's documentation](https://github.com/HRI-EU/AffAction/blob/develop/python/module.cpp).
 
 ```
 sim = LlmSim()
@@ -130,7 +130,7 @@ python -i ../src/AffAction/python/pySim.py
 Now, you can send commands to it on the console, for instance
 
 ```
-sim.planActionSequence("get red_glass")
+sim.plan("get glass_red", True)
 ```
 
 To stop it, use
@@ -150,7 +150,7 @@ Click [here](src/AffAction/python/README.md) for more information and documentat
 
 #### Connect to simulator with python websocket client
 
-See section *Python virtual environment* in [src/AffAction/README.md](src/AffAction/python/README.md)
+See section *Python virtual environment* in [src/AffAction/README.md](https://github.com/HRI-EU/AffAction/blob/develop/python/README.md)
 
 
 
