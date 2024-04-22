@@ -16,14 +16,14 @@ This repository contains the software for the project Smile that is the basis fo
 For an initial checkout, do:
 ```bash
 git clone https://github.com/HRI-EU/SmileWorkspace.git
-cd smile
+cd SmileWorkspace
 git submodule update --init --recursive
 ```
 
 ### Updating the workspace
 To update the workspace and all submodules, do:
 ```bash
-cd Smile
+cd SmileWorkspace
 git fetch
 git rebase
 git submodule update --init --recursive
