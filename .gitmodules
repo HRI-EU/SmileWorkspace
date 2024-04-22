@@ -1,0 +1,25 @@
+[submodule "src/Rcs"]
+	path = src/Rcs
+	url = https://github.com/HRI-EU/Rcs.git
+	branch = develop
+[submodule "src/ESLib"]
+	path = src/ESLib
+	url = https://github.com/HRI-EU/ESLib.git
+	branch = develop
+[submodule "src/Tropic"]
+	path = src/Tropic
+	url = https://github.com/HRI-EU/Tropic.git
+	branch = develop
+[submodule "src/AffAction"]
+	path = src/AffAction
+	url = https://github.com/HRI-EU/AffAction.git
+	branch = develop
+[submodule "src/pybind11"]
+	path = src/pybind11
+	url = https://github.com/pybind/pybind11.git
+[submodule "src/websocketpp"]
+	path = src/websocketpp
+	url = https://github.com/zaphoyd/websocketpp.git
+[submodule "src/WildMagic5p17"]
+	path = src/WildMagic5p17
+	url = https://github.com/HRI-EU/WildMagic5p17.git
