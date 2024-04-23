@@ -9,8 +9,8 @@ __pycache__/
 
 klocwork
 
-build*
-install*
+build
+install
 
 config/aruco
 config/hri_scitos_description
