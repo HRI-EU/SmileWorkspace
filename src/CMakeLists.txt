@@ -35,6 +35,8 @@ ADD_DEFINITIONS("-DRCS_BASE_PATH_LENGTH=${RCS_BASE_PATH_LENGTH}")
 ################################################################################
 # Override some option settings to reduce dependencies
 ################################################################################
+OPTION (RCS_COPY_OR_LINK_CONFIG_DIRS "Copy or link configuration file directories" OFF)
+OPTION (TROPIC_COPY_OR_LINK_CONFIG_DIRS "Copy or link configuration file directories" OFF)
 OPTION (Eigen3_FOUND "Override default Eigen3_FOUND option" OFF)
 OPTION (USE_EIGEN3 "Override default USE_EIGEN3 option" OFF)
 OPTION (USE_VORTEX "Override default USE_VORTEX option" OFF)
