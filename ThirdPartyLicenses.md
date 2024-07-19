@@ -39,6 +39,11 @@ bring it to our attention.
   https://github.com/Kinovarobotics/kinova-ros?tab=BSD-3-Clause-1-ov-file#readme \
   https://opensource.org/license/bsd-3-clause
 
+- ros-kortex is released under the BSD-3-Clause License: \
+  https://github.com/Kinovarobotics/ros_kortex/ \
+  https://github.com/Kinovarobotics/ros_kortex/blob/noetic-devel/LICENSE \
+  https://opensource.org/license/bsd-3-clause
+
 - websocketpp is released under the BSD-3-Clause License: \
   https://github.com/zaphoyd/websocketpp \
   https://github.com/zaphoyd/websocketpp?tab=License-1-ov-file#readme \

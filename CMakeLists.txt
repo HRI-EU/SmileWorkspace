@@ -75,6 +75,7 @@ ENDMACRO()
 ################################################################################
 COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/kinova_description" "${PROJECT_BINARY_DIR}/config" "kinova_description")
 COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/hri_scitos_description" "${PROJECT_BINARY_DIR}/config" "hri_scitos_description")
+COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/kortex_description" "${PROJECT_BINARY_DIR}/config" "kortex_description")
 COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/src/Rcs/config/fonts" "${PROJECT_BINARY_DIR}/config" "fonts")
 
 ################################################################################
