@@ -23,6 +23,6 @@
 [submodule "src/WildMagic5p17"]
 	path = src/WildMagic5p17
 	url = https://github.com/HRI-EU/WildMagic5p17.git
-[submodule "src/-b"]
-	path = src/-b
+[submodule "src/camera_tracking"]
+	path = src/camera_tracking
 	url = https://github.com/HRI-EU/camera_tracking.git
