@@ -69,6 +69,23 @@ make install
 It also compiles for Windows (Visual Studio), please follow the instructions [here](https://github.com/HRI-EU/Rcs/tree/develop).
 
 
+### MacOS / Apple
+
+We use the homebrew package manager with these packages:
+Mandatory: cmake graphviz open-scene-graph pkgconf qt@5 qwt-qt5 zeromq
+Optional: xdot bullet asio doxygen eigen
+
+Compile from terminal console:
+
+cmake ../src/Smile/ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_PREFIX_PATH=/opt/homebrew/Cellar/qt@5/5.15.16/lib/cmake
+
+Compile with Xcode:
+
+cmake -G Xcode ../src/Smile/ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_PREFIX_PATH=/opt/homebrew/Cellar/qt@5/5.15.16/lib/cmake
+
+
+
+
 
 
 
