@@ -46,15 +46,26 @@ OPTION (USE_OCTOMAP "Override default USE_OCTOMAP option" OFF)
 OPTION (QPOASES_FOUND "Override default QPOASES_FOUND option" OFF)
 OPTION (USE_QPOASES "Override default USE_QPOASES option" OFF)
 OPTION (USE_WM5 "Override default USE_WM5 option" ON)
+
+IF (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/AzureKinectPerception")
+  OPTION (WITH_AZURE_DK "Compile against Azure Kinect DK" OFF)
+ENDIF()
+
 SET (WM5_FOUND ON)
 SET (WM5_LIBRARIES Wm5Core Wm5Mathematics)
 
 ################################################################################
 # All submodules go here
 ################################################################################
+
 ADD_SUBDIRECTORY(WildMagic5p17)
 ADD_SUBDIRECTORY(Rcs)
 LIST(APPEND CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/Rcs/cmake)
+
+IF(WITH_AZURE_DK)
+  ADD_SUBDIRECTORY(AzureKinectPerception)
+ENDIF()
+
 ADD_SUBDIRECTORY(Tropic)
 ADD_SUBDIRECTORY(ESLib)
 ADD_SUBDIRECTORY(AffAction)
