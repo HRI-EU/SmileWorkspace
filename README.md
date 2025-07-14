@@ -1,12 +1,22 @@
 # Smile software workspace
 
-This repository contains the software for the project Smile that is the basis for these papers:
+This repository contains the software for the project Smile that is the basis for a number of papers:
 
-* Joublin, F., Ceravola, A., Smirnov, P., Ocker, F., Deigmoeller, J., Belardinelli, A., Wang, C., Hasler, S., Tanneberg, D. & Gienger, M.: [Copal: Corrective planning of robot actions with large language models.](https://hri-eu.github.io/Loom) International Conference on Robotics and Automation (ICRA), 2024.
+* Joublin, F., Ceravola, A., Smirnov, P., Ocker, F., Deigmoeller, J., Belardinelli, A., Wang, C., Hasler, S., Tanneberg, D. & Gienger, M.: \
+  [Copal: Corrective planning of robot actions with large language models.](https://hri-eu.github.io/Loom) 
+  International Conference on Robotics and Automation (ICRA), 2024.
 
-* Tanneberg, D., Ocker, F., Hasler, S., Deigmoeller, J., Belardinelli, A., Wang, C., Wersing, H., Sendhoff, B. & Gienger, M. (2024). [To Help or Not to Help: LLM-based Attentive Support for Human-Robot Group Interactions.](https://hri-eu.github.io/AttentiveSupport) arXiv preprint arXiv:2403.12533.
+* Tanneberg, D., Ocker, F., Hasler, S., Deigmoeller, J., Belardinelli, A., Wang, C., Wersing, H., Sendhoff, B. & Gienger, M.: \
+  [To Help or Not to Help: LLM-based Attentive Support for Human-Robot Group Interactions.](https://hri-eu.github.io/AttentiveSupport) \
+  IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2024.
 
+* Leusmann, J., Belardinelli, A., Haliburton, L., Hasler, S., Schmidt, A., Mayer, S., Gienger, M. and Wang, C:\
+  [Investigating LLM-Driven Curiosity in Human-Robot Interaction.](https://www.medien.ifi.lmu.de/pubdb/publications/pub/leusmann2025investigating/leusmann2025investigating.pdf) \
+  ACM Conference on Human Factors in Computing Systems (CHI), 2025
 
+* Krüger, M., Tanneberg, D., Wang, C. Hasler, S. and Gienger, M.: \
+  [Mirror Eyes: Explainable Human-Robot Interaction at a Glance.](https://hri-eu.github.io/MirrorEyes) \
+  IEEE International Conference on Robot and Human Interactive Communication (RO-MAN), 2025
 
 
 
@@ -77,11 +87,15 @@ Optional: xdot bullet asio doxygen eigen
 
 Compile from terminal console:
 
+```bash
 cmake ../src/Smile/ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_PREFIX_PATH=/opt/homebrew/Cellar/qt@5/5.15.16/lib/cmake
+```
 
 Compile with Xcode:
 
+```bash
 cmake -G Xcode ../src/Smile/ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_PREFIX_PATH=/opt/homebrew/Cellar/qt@5/5.15.16/lib/cmake
+```
 
 
 
@@ -97,7 +111,55 @@ cmake -G Xcode ../src/Smile/ -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_PREFIX_PA
 cd install
 bin/TestLLMSim 
 ```
-You should now see a graphics window. If you hover the mouse over an object on the table, and type 'm' in the graphics window, you should be able to see the robot grasping it.
+You should now see a graphics window. If you hover the mouse over an object on 
+the table, and type 'm' in the graphics window, you should be able to see the 
+robot grasping it.
+
+
+## How to run the Schunk PW70 PTU 
+
+***Step 1:*** 
+Start the driver. It will open two pub / sub zmq sockets on localhost. 
+The connection from robot to remote process is on port 40006, the remote 
+process to the robot driver is sending on port 40007. To change this, or to 
+add a different connection, please refer to the file RoboNetworkInfo.h.
+
+```bash
+cd SmileWorkspace/build
+bin/PTUDriver -m 1 -robo_name ptu
+```
+
+the PTUDriver also implements other modes for initializing the unit or sending 
+commands from the command line. Details are displayed when running 
+
+```bash
+bin/PTUDriver -h
+```
+
+***Step 2:*** 
+Start the python test program.
+
+```bash
+cd SmileWorkspace/src/AffAction/python
+python -i ptu_client.py
+```
+
+This brings you to a python console, in which you can call the functions 
+implemented in the ptu_client.py, for instance:
+
+```bash
+ptu_command_once(30, 10)
+ptu_quit()
+```
+
+These functions are for illustration purpose only. For communicating with 
+the PTUDriver in a closed loop with higher frequencies, you need to implement 
+your own function that opens / closes the connection once, and then does the
+command / feedback handling inside.
+
+
+
+
 
 ### Python module test
 
