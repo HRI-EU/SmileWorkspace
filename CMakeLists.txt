@@ -84,8 +84,17 @@ COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/src/Rcs/config/fonts" "${PROJECT_BINARY_DIR
 ################################################################################
 ADD_SUBDIRECTORY(src)
 
+################################################################################
+# Installation
+################################################################################
 INSTALL(
  DIRECTORY config/meshes/
  DESTINATION config
- #FILES_MATCHING PATTERN "*.h"
 )
+
+# $<CONFIG> expands to the build type, like Release etc., but only at install time
+IF (WIN32)
+  INSTALL(DIRECTORY "${CMAKE_BINARY_DIR}/bin/$<CONFIG>/"
+          DESTINATION bin
+          FILES_MATCHING PATTERN "*.dll")
+ENDIF()
