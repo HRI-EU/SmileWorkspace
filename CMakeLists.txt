@@ -36,6 +36,9 @@ SET(BST_INSTALL_CATEGORY Libraries)
 SET(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)
 
+LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src/Rcs/cmake)
+
+
 ################################################################################
 # Macro to copy directories
 ################################################################################
@@ -73,11 +76,21 @@ ENDMACRO()
 ################################################################################
 # Link / copy mesh directories 
 ################################################################################
-COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/kinova_description" "${PROJECT_BINARY_DIR}/config" "kinova_description")
-COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/hri_scitos_description" "${PROJECT_BINARY_DIR}/config" "hri_scitos_description")
-COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/assets" "${PROJECT_BINARY_DIR}/config" "assets")
-COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/kortex_description" "${PROJECT_BINARY_DIR}/config" "kortex_description")
-COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/src/Rcs/config/fonts" "${PROJECT_BINARY_DIR}/config" "fonts")
+INCLUDE(CopyOrLinkConfig)
+RCS_COPY_OR_LINK_CONFIG("${PROJECT_SOURCE_DIR}/config/meshes/kinova_description" "${PROJECT_BINARY_DIR}/config/kinova_description")
+RCS_COPY_OR_LINK_CONFIG("${PROJECT_SOURCE_DIR}/config/meshes/hri_scitos_description" "${PROJECT_BINARY_DIR}/config/hri_scitos_description")
+RCS_COPY_OR_LINK_CONFIG("${PROJECT_SOURCE_DIR}/config/meshes/assets" "${PROJECT_BINARY_DIR}/config/assets")
+RCS_COPY_OR_LINK_CONFIG("${PROJECT_SOURCE_DIR}/config/meshes/kortex_description" "${PROJECT_BINARY_DIR}/config/kortex_description")
+RCS_COPY_OR_LINK_CONFIG("${PROJECT_SOURCE_DIR}/src/Rcs/config/fonts" "${PROJECT_BINARY_DIR}/config/fonts")
+
+
+
+
+#COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/kinova_description" "${PROJECT_BINARY_DIR}/config" "kinova_description")
+#COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/hri_scitos_description" "${PROJECT_BINARY_DIR}/config" "hri_scitos_description")
+#COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/assets" "${PROJECT_BINARY_DIR}/config" "assets")
+#COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/config/meshes/kortex_description" "${PROJECT_BINARY_DIR}/config" "kortex_description")
+#COPY_CONFIG_DIR("${CMAKE_SOURCE_DIR}/src/Rcs/config/fonts" "${PROJECT_BINARY_DIR}/config" "fonts")
 
 ################################################################################
 # All submodules go here
